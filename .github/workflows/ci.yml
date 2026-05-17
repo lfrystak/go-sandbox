@@ -69,6 +69,7 @@ jobs:
           -Dsonar.test.inclusions=**/*_test.go
           -Dsonar.go.coverage.reportPaths=coverage.out
           -Dsonar.verbose=${{ inputs.sonar_verbose || false }}
+          -Dsonar.sarifReportPaths=sarif.json
 
   release:
     runs-on: ubuntu-latest

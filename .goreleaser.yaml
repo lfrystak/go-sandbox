@@ -43,7 +43,8 @@ archives:
         formats: [zip]
 
 changelog:
-  use: github-native
+  use: github
+  abbrev: 7
   sort: asc
   filters:
     exclude:

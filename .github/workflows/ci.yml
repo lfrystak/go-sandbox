@@ -43,7 +43,7 @@ jobs:
       with:
         version: v2.12
         args: >
-          --output.sarif.path sarif.json
+          --output.sarif.path golangci-lint-sarif.json
 
     - name: Test
       run: ls -al
@@ -69,7 +69,7 @@ jobs:
           -Dsonar.test.inclusions=**/*_test.go
           -Dsonar.go.coverage.reportPaths=coverage.out
           -Dsonar.verbose=${{ inputs.sonar_verbose || false }}
-          -Dsonar.sarifReportPaths=sarif.json
+          -Dsonar.sarifReportPaths=golangci-lint-sarif.json
 
   release:
     runs-on: ubuntu-latest

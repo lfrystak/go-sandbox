@@ -15,21 +15,23 @@ jobs:
           script: |
             const body = context.payload.issue.body ?? '';
 
+            const labels = ['feedback'];
+
             const match = body.match(/###\s*Type\s*\n+([^\n]+)/);
-            if (!match) return;
+            if (match) {
+              const typeLabel = {
+                'Bug report':      'bug',
+                'Question':        'question',
+                'Feature request': 'enhancement',
+                'Other':           'other',
+              }[match[1].trim()];
 
-            const typeLabel = {
-              'Bug report':      'bug',
-              'Question':        'question',
-              'Feature request': 'enhancement',
-              'Other':           'other',
-            }[match[1].trim()];
-
-            if (!typeLabel) return;
+              if (typeLabel) labels.push(typeLabel);
+            }
 
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo:  context.repo.repo,
               issue_number: context.payload.issue.number,
-              labels: [typeLabel],
+              labels,
             });

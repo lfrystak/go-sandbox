@@ -1,7 +1,7 @@
 name: Feedback & Questions
 description: Report an issue, ask a question, or share feedback about this project.
 title: "[Feedback] "
-labels: ["feedback"]
+labels: []
 body:
   - type: dropdown
     id: type

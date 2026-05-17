@@ -42,6 +42,11 @@ jobs:
       continue-on-error: true
       with:
         version: v2.12
+        args: >
+          --output.sarif.path sarif.json
+
+    - name: Test
+      run: ls -al
 
     - name: Build
       run: go build -v ./...

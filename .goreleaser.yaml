@@ -41,7 +41,9 @@ changelog:
 release:
   footer: >-
     🙏 Thank you for using {{ .ProjectName }}!
-    ❓ Any questions or issues? Please open an issue at [{{ .GitURL }}/issues].
+
+    ❓ Any questions or issues? Please open an issue at {{ .GitURL }}/issues.
+
     ---
 
     Released by [GoReleaser](https://github.com/goreleaser/goreleaser).

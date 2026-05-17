@@ -43,7 +43,6 @@ archives:
         formats: [zip]
 
 changelog:
-  use: git
   sort: asc
   filters:
     exclude:

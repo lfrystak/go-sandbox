@@ -17,11 +17,15 @@ func TestMainOutput(t *testing.T) {
 
 	main()
 
-	w.Close()
+	if err := w.Close(); err != nil {
+		t.Fatal(err)
+	}
 	os.Stdout = old
 
 	var buf bytes.Buffer
-	buf.ReadFrom(r)
+	if _, err := buf.ReadFrom(r); err != nil {
+		t.Fatal(err)
+	}
 
 	got := buf.String()
 	want := "Hello, World!\nGreetings from go-sandbox.\n"
